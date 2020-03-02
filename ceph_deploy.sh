@@ -30,7 +30,7 @@ cat > /etc/ceph/ceph.conf <<EOF
 [global]
     public network             = 10.0.0.0/24
     cluster network            = 10.0.0.0/24
-    pid file                   = /var/run/ceph/$name.pid
+    pid file                   = /var/run/ceph/ceph-mon.pid
     auth cluster required      = cephx
     auth service required      = cephx
     auth client required       = cephx
@@ -51,6 +51,7 @@ cat > /etc/ceph/ceph.conf <<EOF
 #    mon addr = 10.0.0.4
 [mds]
 [osd]
+     journal dio = false
      osd objectstore = filestore
 [client]
     rbd cache                           = true
